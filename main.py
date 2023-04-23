@@ -1,17 +1,13 @@
 import numpy as np
-from sklearn import preprocessing
 import pandas as pd
-
-import keras
-import tensorflow as tf
-from keras.models import Model
-from keras.layers import Dense, Dropout, LSTM, Input, Activation, concatenate
-from keras.callbacks import EarlyStopping
-
 from keras import optimizers
+from keras.callbacks import EarlyStopping
+from keras.layers import Dense, Dropout, LSTM, Input, Activation, concatenate
+from keras.models import Model
+from sklearn import preprocessing
+from transformers import set_seed
 
 np.random.seed(4)
-from tensorflow.random import set_seed
 set_seed(4)
 
 history_points = 50
@@ -101,11 +97,9 @@ z = Dense(1, activation="linear", name='dense_out')(z)
 # our model will accept the inputs of the two branches and then output a single value
 model = Model(inputs=[lstm_branch.input, technical_indicators_branch.input], outputs=z)
 
-adam = optimizers.Adam(lr=0.0005)
+adam = optimizers.Adam(learning_rate=0.0005)
 model.compile(optimizer=adam,
               loss='mse')
-
-from keras.utils import plot_model
 
 # plot_model(model, to_file='model.png', show_shapes=True)
 
