@@ -69,7 +69,6 @@ technical_indicators = np.array(technical_indicators)
 
 tech_ind_scaler = preprocessing.MinMaxScaler()
 technical_indicators_normalised = tech_ind_scaler.fit_transform(technical_indicators)
-technical_indicators_normalised.shape
 
 
 
