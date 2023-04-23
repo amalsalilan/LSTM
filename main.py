@@ -9,6 +9,7 @@ from keras.layers import Dense, Dropout, LSTM, Input, Activation, concatenate
 from keras.callbacks import EarlyStopping
 
 from keras import optimizers
+from keras.utils import plot_model
 
 np.random.seed(4)
 from tensorflow.random import set_seed
@@ -104,8 +105,6 @@ model = Model(inputs=[lstm_branch.input, technical_indicators_branch.input], out
 adam = optimizers.Adam(lr=0.0005)
 model.compile(optimizer=adam,
               loss='mse')
-
-from keras.utils import plot_model
 
 # plot_model(model, to_file='model.png', show_shapes=True)
 
