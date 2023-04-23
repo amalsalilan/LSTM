@@ -143,8 +143,6 @@ pyplot.ylabel('loss')
 pyplot.xlabel('epoch')
 pyplot.legend(['train', 'validation'], loc='upper right')
 pyplot.show()
-
-import matplotlib.pyplot as plt
 plt.gcf().set_size_inches(22, 15, forward=True)
 
 start = 0
